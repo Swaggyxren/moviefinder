@@ -1,73 +1,69 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Website</title>
-  
-  <!-- Link to external CSS -->
+  <title>MovieFinder</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/home.css">
   <link rel="preload" href="css/home.css" as="style">
-  
-  <!-- Link to external JS -->
   <link rel="preload" href="js/home.js" as="script">
-
-  <!-- Manifest file -->
   <link rel="manifest" href="manifest.json">
-  
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- JavaScript file -->
+
+  <!-- Scripts -->
   <script defer src="js/home.js"></script>
 </head>
 
 <body>
-  <!-- Navbar Section -->
-  <div class="navbar">
-    <img src="logo.png" alt="LOGO HERE" />
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <img src="logo.png" alt="MovieFinder Logo" class="logo" />
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- Banner Section -->
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
+  <!-- Hero Banner -->
+  <section class="banner" id="banner">
+    <h1 id="banner-title" class="banner-title">Discover Your Next Favorite Movie</h1>
+  </section>
 
-  <!-- Trending Movies Section -->
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
+  <!-- Trending Content -->
+  <main class="content">
+    <section class="row">
+      <h2>Trending Movies</h2>
+      <div class="list" id="movies-list"></div>
+    </section>
 
-  <!-- Trending TV Shows Section -->
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
+    <section class="row">
+      <h2>Trending TV Shows</h2>
+      <div class="list" id="tvshows-list"></div>
+    </section>
 
-  <!-- Trending Anime Section -->
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
+    <section class="row">
+      <h2>Trending Anime</h2>
+      <div class="list" id="anime-list"></div>
+    </section>
+  </main>
 
-  <!-- Modal for displaying movie/show details -->
+  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
       <div class="modal-body">
-        <img id="modal-image" src="" alt="Modal Image" />
-        <div class="modal-text">
-          <h2 id="modal-title"></h2>
+        <img id="modal-image" src="" alt="Media Thumbnail" class="modal-image" />
+        <div class="modal-details">
+          <h2 id="modal-title" class="modal-title"></h2>
           <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
+          <p id="modal-description" class="modal-description"></p>
         </div>
       </div>
-      
-      <!-- Server Selector -->
+
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -76,23 +72,22 @@
           <option value="player.videasy.net">Player.Videasy.net</option>
         </select>
       </div>
-      
-      <!-- Embedded Video -->
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+
+      <iframe id="modal-video" class="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- Search Modal for movie/show search -->
+  <!-- Search Modal -->
   <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+    <button class="modal-close" onclick="closeSearchModal()">&times;</button>
+    <input type="text" id="search-input" class="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
     <div class="results" id="search-results"></div>
   </div>
 
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <p>&copy; 2025 My Website. All rights reserved.</p>
+      <p>&copy; 2025 MovieFinder. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Disclaimer</a>
         <a href="#">About Us</a>
@@ -100,6 +95,5 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>
